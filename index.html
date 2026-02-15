@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九人同行，春节宜兴首日：小火车穿行过童话，烟花绽放出团圆</title>
+    <style>
+        :root {
+            --primary-color: #e07a5f;
+            --secondary-color: #3d405b;
+            --accent-color: #81b29a;
+            --bg-color: #f4f1de;
+            --text-color: #2c3e50;
+            --light-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-radius: 0 0 25px 25px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        header .date-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-top: 12px;
+            font-size: 0.85rem;
+        }
+
+        /* Content */
+        article {
+            background: var(--light-bg);
+            border-radius: 18px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 22px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-style: italic;
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .photo-grid.two-col {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .photo-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .photo-grid.four-col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-item.full-width {
+            grid-column: 1 / -1;
+            aspect-ratio: 16/9;
+        }
+
+        /* Info Card */
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .info-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .info-item {
+            display: flex;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--secondary-color);
+            width: 80px;
+            flex-shrink: 0;
+        }
+
+        /* Preview Card */
+        .preview-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .preview-card h3 {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        footer .heart {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            header .subtitle {
+                font-size: 0.85rem;
+            }
+
+            article {
+                padding: 20px 15px;
+            }
+
+            .photo-grid.two-col,
+            .photo-grid.three-col,
+            .photo-grid.four-col {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Loading animation */
+        .photo-item {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        .photo-item img {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Scroll animations */
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>九人同行，春节宜兴首日</h1>
+        <p class="subtitle">小火车穿行过童话，烟花绽放出团圆</p>
+        <span class="date-badge">2026年2月14日 · 大年初七</span>
+    </header>
+
+    <div class="container">
+        <article>
+            <!-- Dongjiu Park -->
+            <div class="section">
+                <h2 class="section-title">🌅 东氿公园：初见宜兴</h2>
+                <div class="section-content">
+                    清晨出发，首站抵达东氿公园。湖面晨雾缭绕，老人在栈道散步，小朋友追逐嬉戏，一家人悠闲地享受着宜兴的第一缕阳光。
+                </div>
+                <div class="photo-grid two-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214163744_103_654.jpg" alt="东氿公园"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214163747_104_654.jpg" alt="东氿公园"></div>
+                </div>
+                <div class="photo-grid two-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214163750_105_654.jpg" alt="东氿公园"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214163751_106_654.jpg" alt="东氿公园"></div>
+                </div>
+                <div class="photo-grid two-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214163753_107_654.jpg" alt="东氿公园"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214163756_108_654.jpg" alt="东氿公园"></div>
+                </div>
+            </div>
+
+            <!-- Lunch -->
+            <div class="section">
+                <h2 class="section-title">🍜 午餐：王府壹号</h2>
+                <div class="section-content">
+                    中午来到王府壹号特色菜馆，九人包厢，其乐融融。少盐少辣的宜兴菜合了老人胃口，小朋友吃得满嘴油光。
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214194517_112_654.jpg" alt="午餐"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214194522_113_654.jpg" alt="午餐"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214194527_114_654.jpg" alt="午餐"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214194535_115_654.jpg" alt="午餐"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214194538_116_654.jpg" alt="午餐"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214194543_117_654.jpg" alt="午餐"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214194547_118_654.jpg" alt="午餐"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214194550_119_654.jpg" alt="午餐"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214194554_120_654.jpg" alt="午餐"></div>
+                </div>
+            </div>
+
+            <!-- Hotel -->
+            <div class="section">
+                <h2 class="section-title">🏨 窑厂度假酒店</h2>
+                <div class="section-content">
+                    午后入住窑厂度假酒店，庭院幽静，接驳车直达窑湖小镇，老人小孩都方便。
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214201540_572_269.jpg" alt="酒店"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214201547_573_269.jpg" alt="酒店"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214201552_574_269.jpg" alt="酒店"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214201557_575_269.jpg" alt="酒店"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214201559_576_269.jpg" alt="酒店"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214201602_577_269.jpg" alt="酒店"></div>
+                </div>
+            </div>
+
+            <!-- Train -->
+            <div class="section">
+                <h2 class="section-title">🚂 云上小火车</h2>
+                <div class="section-content">
+                    坐上窑湖小镇的小火车，三公里四十分钟，穿过茶园湖景，三代人的笑声飘散在春风里。
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item full-width"><img src="images/微信图片_20260214202827_580_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202829_581_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202831_582_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202833_583_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202835_584_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202837_585_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202839_586_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202841_587_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202842_588_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202844_589_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202846_590_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202848_591_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202851_592_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202852_593_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202854_594_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202856_595_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202859_596_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202900_597_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202902_598_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202904_599_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202906_600_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202909_601_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202911_602_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202914_603_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202916_604_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202920_605_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202922_606_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202925_607_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202927_608_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202930_609_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202932_610_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202936_611_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202939_612_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202940_613_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202943_614_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202944_615_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202947_616_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202949_617_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202952_618_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202954_619_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202956_620_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214202957_621_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214202959_622_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203000_623_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203001_624_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203004_625_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203005_626_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203006_627_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203007_121_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203008_122_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203009_123_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203010_124_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203011_125_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203012_126_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203013_127_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203014_128_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203015_129_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203016_130_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203016_131_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203017_132_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203018_133_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203020_134_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203020_135_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203021_136_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203026_137_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203027_138_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203028_139_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203029_140_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203031_141_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203032_142_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203033_143_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203034_144_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203035_145_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203036_146_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203037_147_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203038_148_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203039_149_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203043_151_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203046_152_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203048_153_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203049_154_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203051_155_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203053_156_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203056_157_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203057_158_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203100_159_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203102_160_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203103_161_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203105_162_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid four-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203108_163_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203109_164_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203110_165_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203111_166_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203112_167_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203127_168_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203129_169_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203130_170_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203132_171_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203133_172_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203134_173_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203135_174_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203136_175_654.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203137_176_654.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203148_628_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203211_629_269.jpg" alt="小火车"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214203226_630_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203258_631_269.jpg" alt="小火车"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214203306_177_654.jpg" alt="小火车"></div>
+                </div>
+            </div>
+
+            <!-- Fireworks -->
+            <div class="section">
+                <h2 class="section-title">🎆 烟花秀</h2>
+                <div class="section-content">
+                    夜幕降临，社火广场的烟花如约绽放。漫天绚烂照亮了窑湖的夜，也映亮了全家人的笑脸。
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item full-width"><img src="images/微信图片_20260214203824_178_654.jpg" alt="烟花秀"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214204005_182_654.jpg" alt="烟花"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214204020_183_654.jpg" alt="烟花"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214211009_187_654.jpg" alt="烟花"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214211011_188_654.jpg" alt="烟花"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214211017_189_654.jpg" alt="烟花"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214211019_190_654.jpg" alt="烟花"></div>
+                </div>
+                <div class="photo-grid three-col">
+                    <div class="photo-item"><img src="images/微信图片_20260214211022_191_654.jpg" alt="烟花"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214211024_192_654.jpg" alt="烟花"></div>
+                    <div class="photo-item"><img src="images/微信图片_20260214223600_195_654.jpg" alt="烟花"></div>
+                </div>
+
+                <div class="info-card">
+                    <h3>📝 今日行程</h3>
+                    <div class="info-item"><span class="info-label">📅 日期</span><span>2026年2月14日（大年初七）</span></div>
+                    <div class="info-item"><span class="info-label">🚗 路线</span><span>上海 → 东氿公园 → 王府壹号 → 窑厂酒店 → 窑湖小镇</span></div>
+                    <div class="info-item"><span class="info-label">🏨 住宿</span><span>窑厂度假酒店</span></div>
+                    <div class="info-item"><span class="info-label">⭐ 亮点</span><span>东氿公园晨景、云上小火车、社火烟花秀</span></div>
+                </div>
+            </div>
+
+            <!-- Preview -->
+            <div class="preview-card">
+                <h3>📅 明日预告</h3>
+                <p>陶二厂 · 蜀山古南街 · 东坡阁 · 九福楼晚餐</p>
+            </div>
+        </article>
+
+        <footer>
+            <p>九人自驾团 · 用心记录每一段旅程 <span class="heart">♥</span></p>
+            <p style="margin-top: 8px; opacity: 0.7;">2026年春节 · 宜兴湖州六日五晚</p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll animation
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
